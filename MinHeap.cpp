@@ -1,7 +1,3 @@
-//
-// Created by Bassel on 4/1/2025.
-//
-
 #include "MinHeap.h"
 
 MinHeap::MinHeap() : capacity(10), currentSize(0) {

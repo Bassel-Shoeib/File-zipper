@@ -1,25 +1,26 @@
-//
-// Created by Bassel on 4/1/2025.
-//
-#include <iostream>
 #include "frequency_counter.h"
 #include <fstream>
+#include <stdexcept>
+#include <iostream>
+#include <cstring>
 
-FrequencyCounter::FrequencyCounter() : uniqueCount(0) {
-    for (int i = 0; i < TABLE_SIZE; ++i) {
-        freqTable[i].character = static_cast<char>(i);
-        freqTable[i].frequency = 0;
-    }
+FrequencyCounter::FrequencyCounter() {
+    std::memset(freqTable, 0, sizeof(freqTable));
+    uniqueCount = 0;
 }
 
 void FrequencyCounter::count(const char* filename) {
-    std::ifstream file(filename);
-    char ch;
-    while (file.get(ch)) {
-        unsigned char idx = static_cast<unsigned char>(ch);
-        freqTable[idx].frequency++;
+    std::ifstream in(filename, std::ios::binary);
+    if (!in) throw std::runtime_error("Failed to open file for reading: " + std::string(filename));
+
+    unsigned char ch;
+    while (in.read(reinterpret_cast<char*>(&ch), 1)) {
+        if (freqTable[ch].frequency == 0) {
+            uniqueCount++;
+        }
+        freqTable[ch].character = ch;
+        freqTable[ch].frequency++;
     }
-    file.close();
 }
 
 const CharFrequency* FrequencyCounter::getFrequencies() const {

@@ -1,7 +1,3 @@
-//
-// Created by Bassel on 4/1/2025.
-//
-
 #ifndef MINHEAP_H
 #define MINHEAP_H
 
