@@ -1,6 +1,3 @@
-//
-// Created by Bassel on 4/1/2025.
-//
 
 #ifndef HUFFMANNODE_H
 #define HUFFMANNODE_H
