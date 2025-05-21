@@ -1,52 +1,31 @@
-#include <iostream>
 #include "HuffmanTree.h"
-#include "frequency_counter.h"  // Need to include for debug
-#include "MinHeap.h"          // Need to include for debug
-
-void printCode(char ch, const std::string& code) {
-    std::cout << "'";
-    if (ch == '\n') std::cout << "\\n";
-    else if (ch == '\t') std::cout << "\\t";
-    else if (ch == ' ') std::cout << " ";
-    else if (ch < 32 || ch > 126) std::cout << "0x" << std::hex << (int)ch << std::dec;
-    else std::cout << ch;
-    std::cout << "' : " << code << "\n";
-}
+#include <iostream>
+#include <string>
 
 int main() {
-    const char* filename = "C:/Users/Hp/Documents/GitHub/File-zipper/sample.txt";
+    char choice;
+    std::cout << "Choose operation (c for compress, d for decompress): ";
+    std::cin >> choice;
 
-    // --- DEBUG CODE START ---
-    FrequencyCounter counter;
-    counter.count(filename);
-    MinHeap heap;
-
-    // Build heap for debug check
-    const CharFrequency* freqs = counter.getFrequencies();
-    for (int i = 0; i < 256; ++i) {
-        if (freqs[i].frequency > 0) {
-            heap.insert(new HuffmanNode(freqs[i].character, freqs[i].frequency));
+    try {
+        if (choice == 'c' || choice == 'C') {
+            HuffmanTree tree("C:/Users/AUC/CLionProjects/file_zipper/original.txt");
+            tree.compress("C:/Users/AUC/CLionProjects/file_zipper/original.txt",
+                         "C:/Users/AUC/CLionProjects/file_zipper/compressed.huf");
+            std::cout << "File compressed successfully!" << std::endl;
         }
-    }
-
-    if (counter.getUniqueCount() == 1) {
-        std::cout << "DEBUG: Single character detected\n";
-        HuffmanNode* node = heap.extractMin();
-        std::cout << "Node char: '" << node->data
-                  << "' freq: " << node->freq << "\n";
-        delete node;  // Clean up
-    }
-    // --- DEBUG CODE END ---
-
-    // Original main logic
-    HuffmanTree huffmanTree(filename);
-    const std::string* codeMap = huffmanTree.getCodeMap();
-
-    std::cout << "Huffman Codes:\n";
-    for (int i = 0; i < 256; ++i) {
-        if (!codeMap[i].empty()) {
-            printCode(static_cast<char>(i), codeMap[i]);
+        else if (choice == 'd' || choice == 'D') {
+            HuffmanTree::decompress("C:/Users/AUC/CLionProjects/file_zipper/compressed.huf",
+                                   "C:/Users/AUC/CLionProjects/file_zipper/decompressed.txt");
+            std::cout << "File decompressed successfully!" << std::endl;
         }
+        else {
+            std::cout << "Invalid choice. Please enter 'c' for compress or 'd' for decompress." << std::endl;
+            return 1;
+        }
+    } catch (const std::exception& e) {
+        std::cerr << "Error: " << e.what() << "\n";
+        return 1;
     }
     return 0;
 }
