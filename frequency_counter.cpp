@@ -18,7 +18,6 @@ void FrequencyCounter::count(const char* filename) {
     while (file.get(ch)) {
         unsigned char idx = static_cast<unsigned char>(ch);
         freqTable[idx].frequency++;
-        std::cout << "Read char: '" << ch << "' (ASCII " << (int)ch << ")\n"; // Debug
     }
     file.close();
 }

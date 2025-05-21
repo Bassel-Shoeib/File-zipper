@@ -14,7 +14,7 @@ void printCode(char ch, const std::string& code) {
 }
 
 int main() {
-    const char* filename = "C:/Users/AUC/CLionProjects/file_zipper/sample.txt";
+    const char* filename = "C:/Users/Hp/Documents/GitHub/File-zipper/sample.txt";
 
     // --- DEBUG CODE START ---
     FrequencyCounter counter;

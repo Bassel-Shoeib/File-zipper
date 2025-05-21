@@ -1,0 +1,17 @@
+# ninja log v6
+66	3812	7663228584267967	CMakeFiles/untitled.dir/HuffmanNode.cpp.obj	412a38eecdbdb29e
+74	3862	7663228584347731	CMakeFiles/untitled.dir/MinHeap.cpp.obj	a7b4c5877bad761d
+13	7317	7663228583729399	CMakeFiles/untitled.dir/main.cpp.obj	1a38ce7df486d5a9
+3814	7470	7663228621745278	CMakeFiles/untitled.dir/frequency_counter.cpp.obj	1ca7ba2059889a17
+3862	7754	7663228622226850	CMakeFiles/untitled.dir/HuffmanTree.cpp.obj	476ea127e0e5f202
+7754	8636	7663228661150807	untitled.exe	4a55d401fa3d463b
+27	4292	7663229208741322	CMakeFiles/untitled.dir/main.cpp.obj	1a38ce7df486d5a9
+4293	4967	7663229251404730	untitled.exe	4a55d401fa3d463b
+14	2477	7663229358112000	CMakeFiles/untitled.dir/main.cpp.obj	1a38ce7df486d5a9
+2478	2714	7663229382756138	untitled.exe	4a55d401fa3d463b
+18	2241	7663230468769025	CMakeFiles/untitled.dir/main.cpp.obj	1a38ce7df486d5a9
+2243	2596	7663230491017920	untitled.exe	4a55d401fa3d463b
+17	2251	7663234601492321	CMakeFiles/untitled.dir/frequency_counter.cpp.obj	1ca7ba2059889a17
+2252	2560	7663234623840936	untitled.exe	4a55d401fa3d463b
+41	2937	7664113313592359	CMakeFiles/untitled.dir/HuffmanTree.cpp.obj	476ea127e0e5f202
+2939	3835	7664113342558966	untitled.exe	4a55d401fa3d463b
